@@ -9,7 +9,7 @@
  * @param {Array or Object} collection: The collection over which to iterate.
  * @param {Function} action: The Function to be applied to each value in the 
  * collection
- * @return {value} anyValue
+ * @return {n/a}
  */
  function each(collection, action) {
     if(Array.isArray(collection)) {
@@ -239,7 +239,7 @@ module.exports.each = each;
  */ 
  
  
- function contians(array,value) {
+ function contains(array,value) {
  //I: array, value
    //O: return true if array contains value
    //       return false otherwise
@@ -287,8 +287,8 @@ module.exports.each = each;
 module.exports.each = each;
 
 /**
- * filter: Returns an array of values from another array that when a fucntion
- *          is run using the value, the fucntion returns true.
+ * filter: Iterates through a array passing each element into function, and returns a new array
+ * containing only elements that returned true.
  * 
  * @param {array} array: an array of any length and vlaue
  * @param {function} func: will take args (element, index, collection) and returns
@@ -301,7 +301,7 @@ module.exports.each = each;
  
  function filter(array, func) {
    //I: array array, func function
-   //O: return new aray of elements for which func returns treu
+   //O: return new aray of elements of elements that return true
    //C: use function passed into _.filter
    //E: func returns not boolean
    
@@ -327,21 +327,22 @@ module.exports.each = each;
 
 
 /**
- * reject: Returns an array of values from another array that whe na funciton is run
- *          using the value, the funciton returns false.
+ * reject: iterates through an array passing each element into a function, and returns a new array of
+ * all elements that returned falsey.
+ * 
  * 
  * @param [array} array: an array of any length and value.
  * @param {function} func: will take args(elemnt, index, collection) and returns boolean for
  *                  each element of the collection.
  * 
- * @returns {array}: an array of values from another array that when a funciton
- *                  is run using the value, the funtion will return false.
+ * @returns {array}: an new array containing all falsey elements from the passed in array
+ *                  
  *
  */ 
  
  function reject(array, func) {
     //I: array array, func function
-    //O: return new array of elements for whch func returns false
+    //O: return new array of elements for which func returns false
     //C: use function passed into
     var myElements = [];
     for (var i = 0; i <= array.length - 1; i++) {
@@ -367,8 +368,9 @@ module.exports.each = each;
  * @param {function} func: will take args (element, index, collection) and returns boolean
  *                          for each elementn of the collection.
  * 
- * @returns {array}: a single array with two elements that each contains one of the arrays
- *                      of separated values.
+ * @returns {array}: an array of two sub arrays, one sub array containing truthy values, the other
+ * containing falsey values.
+ *                      
  */ 
  
  function partition(array, func) {
@@ -451,8 +453,8 @@ module.exports.each = each;
  *                      map() is iterating and applying the getKeyValue() to 
  *                      get the value of the object's key. 
  * 
- * @returns {array}: an array of all values of all objects in an array with a
- *                  property of key param
+ * @returns {array}: returns an array of each value from an array of objects at the input property
+ *                  
  */
  
   function pluck(array, key){
